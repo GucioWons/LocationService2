@@ -1,0 +1,6 @@
+country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,id,key,coreCountry,longitude
+Poland,,33.34578886701732,Position,"Krawczyk, Poland",true,Location,50,PL,,Krawczyk,35,,false,83.75270591970424
+"United States of America",,-69.70091272244595,Position,"Mróz, United States of America",false,Location,50,US,,Mróz,36,,false,103.03352848650461
+"United States of America",,-51.41033832339693,Position,"Szewczyk, United States of America",false,Location,50,US,,Szewczyk,37,,false,27.207603376029095
+"United States of America",,84.16390187959726,Position,"Bąk, United States of America",false,Location,50,US,,Bąk,38,,false,45.70099998406222
+"United States of America",,-31.813345680801504,Position,"Krawczyk, United States of America",false,Location,50,US,,Krawczyk,39,,true,110.30154602876955
