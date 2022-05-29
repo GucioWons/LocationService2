@@ -13,15 +13,21 @@ public class CsvReader {
         try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/data.csv"));
             CSVParser parser = CSVFormat.DEFAULT.withDelimiter(',').withHeader().parse(br)) {
             String string = "";
-            for(String tmp : list){
-                string += (tmp + ", ");
-            }
-            string += "\n";
-            for(CSVRecord record : parser) {
-                for(String tmp : list){
-                    string += (record.get(tmp) + ", ");
+            for(int i=0; i<list.size(); i++){
+                if(i != list.size()-1){
+                    string += (list.get(i) + ", ");
+                }else{
+                    string += (list.get(i) + "\n");
                 }
-                string += "\n";
+            }
+            for(CSVRecord record : parser) {
+                for(int i = 0; i<list.size(); i++){
+                    if(i != list.size()-1){
+                        string += (record.get(list.get(i)) + ", ");
+                    }else{
+                        string += (record.get(list.get(i)) + "\n");
+                    }
+                }
             }
             System.out.println(string);
             return string;
