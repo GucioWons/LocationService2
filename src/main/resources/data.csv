@@ -1,6 +1,9 @@
 country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,_id,key,coreCountry,longitude
-Poland,,-42.27440794100659,Position,"Tomaszewski, Poland",true,Location,50,PL,,Tomaszewski,25,,true,35.2960153725092
-"United States of America",,-88.51136196673194,Position,"Marciniak, United States of America",false,Location,50,US,,Marciniak,26,,true,66.53277099257443
-Spain,,-25.03167997459846,Position,"Brzeziński, Spain",true,Location,50,ES,,Brzeziński,27,,false,58.31841972260282
-"United States of America",,-10.146896150211518,Position,"Stępień, United States of America",false,Location,50,US,,Stępień,28,,false,147.09169779340067
-Poland,,35.480350916192236,Position,"Kołodziej, Poland",true,Location,50,PL,,Kołodziej,29,,false,60.89711504076419
+Spain,,19.625062959940408,Position,"Brzeziński, Spain",true,Location,50,ES,,Brzeziński,155,,false,123.52436596606734
+Poland,,-22.33319835664814,Position,"Pawlak, Poland",true,Location,50,PL,,Pawlak,156,,false,95.13535658255552
+Poland,,-63.00368302768757,Position,"Sawicki, Poland",true,Location,50,PL,,Sawicki,157,,false,119.77160541356967
+Spain,,1.8201782499825612,Position,"Przybylski, Spain",true,Location,50,ES,,Przybylski,158,,false,42.7278340027562
+Poland,,39.14796998458411,Position,"Błaszczyk, Poland",true,Location,50,PL,,Błaszczyk,159,,true,61.702639409879474
+"United States of America",,18.488911156245777,Position,"Błaszczyk, United States of America",false,Location,50,US,,Błaszczyk,160,,false,172.36142900670083
+Spain,,-15.030380742273792,Position,"Sawicki, Spain",true,Location,50,ES,,Sawicki,161,,true,30.274583184802545
+Poland,,46.26187580823276,Position,"Błaszczyk, Poland",true,Location,50,PL,,Błaszczyk,162,,false,180.14180547768987
