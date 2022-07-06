@@ -9,19 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static org.example.csv.CsvService.endpoint_1;
-import static org.example.csv.CsvService.endpoint_2;
+import static org.example.csv.CsvService.*;
+
 @RestController
 @RequestMapping("/generate")
 public class CsvController {
     @GetMapping("/endpoint1/{x}")
-    public static void endpoint1(HttpServletResponse response, @PathVariable int x) throws IOException {
+    public static void getFields(HttpServletResponse response, @PathVariable int x) throws IOException {
         response.setContentType("text/plain; charset=utf-8");
-        response.getWriter().print(endpoint_1(x));
+        response.getWriter().print(getFieldsFromUrl(x));
     }
-    @GetMapping("/endpoint2/{x}/{list}")
-    public static void endpoint2(HttpServletResponse response,@PathVariable int x, @PathVariable List<String> list) throws IOException {
+
+    @GetMapping("/endpoint2/{x}/{fields}")
+    public static void getChoosenFields(HttpServletResponse response,@PathVariable int x, @PathVariable List<String> fields) throws IOException {
         response.setContentType("text/plain; charset=utf-8");
-        response.getWriter().print(endpoint_2(x, list));
+        response.getWriter().print(getChoosenFieldsFromUrl(x, fields));
     }
 }

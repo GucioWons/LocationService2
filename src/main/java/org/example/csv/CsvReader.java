@@ -9,31 +9,40 @@ import java.io.FileReader;
 import java.util.List;
 
 public class CsvReader {
-    public static String CsvReader(List<String> list){
+    public static String getJsonParsedToCsv(List<String> fields){
         try(BufferedReader br = new BufferedReader(new FileReader("src/main/resources/data.csv"));
-            CSVParser parser = CSVFormat.DEFAULT.withDelimiter(',').withHeader().parse(br)) {
-            String string = "";
-            for(int i=0; i<list.size(); i++){
-                if(i != list.size()-1){
-                    string += (list.get(i) + ", ");
-                }else{
-                    string += (list.get(i) + "\n");
-                }
-            }
-            for(CSVRecord record : parser) {
-                for(int i = 0; i<list.size(); i++){
-                    if(i != list.size()-1){
-                        string += (record.get(list.get(i)) + ", ");
-                    }else{
-                        string += (record.get(list.get(i)) + "\n");
-                    }
-                }
-            }
-            System.out.println(string);
-            return string;
+            CSVParser parser = CSVFormat.DEFAULT.builder().setHeader().setDelimiter(',').build().parse(br)){
+            return parseJsonToCsv(fields, parser);
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return null;
+    }
+
+    public static String parseJsonToCsv(List<String> fields, CSVParser parser){
+        StringBuilder csvString = new StringBuilder();
+        for(int i=0; i<fields.size(); i++){
+            if(i != fields.size()-1){
+                csvString.append(fields.get(i)).append(", ");
+            }else{
+                csvString.append(fields.get(i)).append("\n");
+            }
+        }
+        for(CSVRecord record : parser) {
+            csvString.append(readField(fields, record));
+        }
+        return csvString.toString();
+    }
+
+    public static String readField(List<String> fields, CSVRecord record){
+        StringBuilder csvString = new StringBuilder();
+        for(int i = 0; i<fields.size(); i++){
+            if(i != fields.size()-1){
+                csvString.append(record.get(fields.get(i))).append(", ");
+            }else{
+                csvString.append(record.get(fields.get(i))).append("\n");
+            }
+        }
+        return csvString.toString();
     }
 }

@@ -1,26 +1,23 @@
 package org.example.json;
 
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class Json {
-    private static ObjectMapper objectMapper = getDefaultObjectMapper();
-    private static CsvMapper csvMapper = new CsvMapper();
+    private static final ObjectMapper objectMapper = getDefaultObjectMapper();
+    private static final CsvMapper csvMapper = new CsvMapper();
 
     private static ObjectMapper getDefaultObjectMapper(){
-        ObjectMapper defaultObjectMapper = new ObjectMapper();
-        return defaultObjectMapper;
+        return new ObjectMapper();
     }
 
     public static JsonNode parse(String src){
@@ -30,67 +27,43 @@ public class Json {
             throw new RuntimeException(e);
         }
     }
-    public static JsonNode parseMap(Map<String, JsonNode> map){
-        String json = null;
-        try {
-            json = objectMapper.writeValueAsString(map);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+
+    public static JsonNode getFlattenedJson(JsonNode jsonNode){
+        List<Map<String,JsonNode>> namesAndObjects = new ArrayList<>();
+        Iterator<JsonNode> jsonObjects = jsonNode.elements();
+        for(int i=0; i<jsonNode.size(); i++){
+            JsonNode jsonObject = jsonObjects.next();
+            namesAndObjects.add(flattenJson(jsonObject));
         }
-        return parse(json);
+        return objectMapper.valueToTree(namesAndObjects);
     }
 
-    public static JsonNode toJson(Object a){
-        return objectMapper.valueToTree(a);
-    }
-    public static JsonNode merge(JsonNode mainNode, JsonNode updateNode) {
-        Iterator<String> fieldNames = updateNode.fieldNames();
-        while (fieldNames.hasNext()) {
-            String fieldName = fieldNames.next();
-            JsonNode jsonNode = mainNode.get(fieldName);
-            // if field exists and is an embedded object
-            if (jsonNode != null && jsonNode.isObject()) {
-                merge(jsonNode, updateNode.get(fieldName));
-            }
-            else {
-                if (mainNode instanceof ObjectNode) {
-                    // Overwrite field
-                    JsonNode value = updateNode.get(fieldName);
-                    ((ObjectNode) mainNode).put(fieldName, value);
-                }
-            }
+    public static Map<String,JsonNode> flattenJson(JsonNode jsonObject){
+        Iterator<JsonNode> jsonFields = jsonObject.elements();
+        Iterator<String> jsonFieldnames = jsonObject.fieldNames();
+        Map<String, JsonNode> namesAndValues = new HashMap<>();
+        for(int i=0; i<jsonObject.size(); i++){
+            JsonNode jsonNode = jsonFields.next();
+            String jsonNodeFieldname = jsonFieldnames.next();
+            rewriteJsonValues(jsonNode, jsonNodeFieldname, namesAndValues);
         }
-        return mainNode;
+        return namesAndValues;
     }
-    public static JsonNode flatten(JsonNode jsonNode){
-        List<Map<String,JsonNode>> maps = new ArrayList<Map<String,JsonNode>>();
-        Iterator<JsonNode> elements = jsonNode.elements();
-        for(int i=0; i<jsonNode.size(); i++){
-            JsonNode tmp = elements.next();
-            Iterator<JsonNode> fields = tmp.elements();
-            Iterator<String> fieldnames = tmp.fieldNames();
-            Map<String, JsonNode> map = new HashMap<>();
-            for(int j=0; j<tmp.size(); j++){
-                JsonNode tmp2 = fields.next();
-                String fieldname = fieldnames.next();
-                if(tmp2.isObject()){
-                    Iterator<JsonNode> objectFields = tmp2.elements();
-                    Iterator<String> objectFieldnames = tmp2.fieldNames();
-                    map.put(objectFieldnames.next(), objectFields.next());
-                    map.put(objectFieldnames.next(), objectFields.next());
-                }else{
-                    map.put(fieldname, tmp2);
-                }
-            }
-            maps.add(map);
+
+    public static void rewriteJsonValues(JsonNode jsonNode, String jsonNodeFieldname, Map<String, JsonNode> namesAndValues){
+        if(jsonNode.isObject()){
+            Iterator<JsonNode> objectFields = jsonNode.elements();
+            Iterator<String> objectFieldnames = jsonNode.fieldNames();
+            namesAndValues.put(objectFieldnames.next(), objectFields.next());
+            namesAndValues.put(objectFieldnames.next(), objectFields.next());
+        }else{
+            namesAndValues.put(jsonNodeFieldname, jsonNode);
         }
-        System.out.println(objectMapper.valueToTree(maps));
-        return objectMapper.valueToTree(maps);
     }
+
     public static void JsonToCsv(JsonNode jsonNode){
-        System.out.println(jsonNode);
         CsvSchema.Builder csvSchemaBuilder = CsvSchema.builder();
-        jsonNode.elements().next().fieldNames().forEachRemaining(f -> csvSchemaBuilder.addColumn(f));
+        jsonNode.elements().next().fieldNames().forEachRemaining(csvSchemaBuilder::addColumn);
         CsvSchema csvSchema = csvSchemaBuilder.build().withHeader();
         try {
             csvMapper.writerFor(JsonNode.class).with(csvSchema).writeValue(new File("src/main/resources/data.csv"), jsonNode);
@@ -98,6 +71,7 @@ public class Json {
             throw new RuntimeException(e);
         }
     }
+
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -106,20 +80,21 @@ public class Json {
         }
         return sb.toString();
     }
-    public static JsonNode JsonFromUrl(int x){
-        InputStream is = null;
+
+    public static JsonNode getJsonFromUrl(int quantity){
         try {
-            is = new URL("http://localhost:8080/generate/json/" + x).openStream();
-            try {
-                BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-                String jsonText = readAll(rd);
-                JsonNode json = parse(jsonText);
-                return json;
-            } finally {
-                is.close();
-            }
+            InputStream is = new URL("http://localhost:8080/generate/json/" + quantity).openStream();
+            return readJson(is);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static JsonNode readJson(InputStream is) throws IOException {
+        try (is) {
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+            String jsonText = readAll(rd);
+            return parse(jsonText);
         }
     }
 }
