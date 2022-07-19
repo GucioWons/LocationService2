@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.csv.CsvReader.getJsonParsedToCsv;
-import static org.example.json.Json.*;
-import static org.example.json.Json.getJsonFromUrl;
+import static org.example.json.JsonFlattener.getFlattenedJson;
+import static org.example.json.JsonFromUrlReader.getJsonFromUrl;
+import static org.example.json.JsonToCsvConverter.JsonToCsv;
 
 @Service
 public class CsvService {
