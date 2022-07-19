@@ -11,7 +11,7 @@ import static org.example.json.Json.getJsonFromUrl;
 
 @Service
 public class CsvService {
-    public static String getFieldsFromUrl(int x){
+    public String getFieldsFromUrl(int x){
         JsonToCsv(getFlattenedJson(getJsonFromUrl(x)));
         List<String> fields = new ArrayList<>();
         fields.add("_type");
@@ -23,7 +23,7 @@ public class CsvService {
         return getJsonParsedToCsv(fields);
     }
 
-    public static String getChoosenFieldsFromUrl(int x, List<String> fields){
+    public String getChosenFieldsFromUrl(int x, List<String> fields){
         JsonToCsv(getFlattenedJson(getJsonFromUrl(x)));
         return getJsonParsedToCsv(fields);
     }

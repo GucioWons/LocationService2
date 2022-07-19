@@ -8,7 +8,6 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
 import java.io.*;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -38,7 +37,7 @@ public class Json {
         return objectMapper.valueToTree(namesAndObjects);
     }
 
-    public static Map<String,JsonNode> flattenJson(JsonNode jsonObject){
+    private static Map<String,JsonNode> flattenJson(JsonNode jsonObject){
         Iterator<JsonNode> jsonFields = jsonObject.elements();
         Iterator<String> jsonFieldnames = jsonObject.fieldNames();
         Map<String, JsonNode> namesAndValues = new HashMap<>();
@@ -50,7 +49,7 @@ public class Json {
         return namesAndValues;
     }
 
-    public static void rewriteJsonValues(JsonNode jsonNode, String jsonNodeFieldname, Map<String, JsonNode> namesAndValues){
+    private static void rewriteJsonValues(JsonNode jsonNode, String jsonNodeFieldname, Map<String, JsonNode> namesAndValues){
         if(jsonNode.isObject()){
             Iterator<JsonNode> objectFields = jsonNode.elements();
             Iterator<String> objectFieldnames = jsonNode.fieldNames();
@@ -90,7 +89,7 @@ public class Json {
         }
     }
 
-    public static JsonNode readJson(InputStream is) throws IOException {
+    private static JsonNode readJson(InputStream is) throws IOException {
         try (is) {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonText = readAll(rd);

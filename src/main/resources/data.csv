@@ -1,9 +1,9 @@
 country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,_id,coreCountry,key,longitude
-"United States of America",,-12.322369572582431,Position,"Mazur, United States of America",false,Location,33174,US,,Mazur,102,false,,50.168043578309025
-Spain,,-40.174576004728685,Position,"Krajewska, Spain",true,Location,89039,ES,,Krajewska,103,true,,124.21550618645747
-Poland,,2.5196491474793703,Position,"Marciniak, Poland",true,Location,90513,PL,,Marciniak,104,true,,48.447204010083134
-Poland,,-80.93184902256331,Position,"Szewczyk, Poland",true,Location,75319,PL,,Szewczyk,105,false,,143.91108637751452
-Spain,,-62.65010633867456,Position,"Marciniak, Spain",true,Location,18635,ES,,Marciniak,106,true,,103.70061001187189
-Poland,,8.822701576989203,Position,"Stępień, Poland",true,Location,51752,PL,,Stępień,107,false,,83.37380682802225
-"United States of America",,-55.54903632427992,Position,"Wasilewska, United States of America",false,Location,79745,US,,Wasilewska,108,false,,40.066865514210555
-Spain,,34.27155949034335,Position,"Sawicki, Spain",true,Location,29042,ES,,Sawicki,109,false,,11.102420948304735
+Poland,,-39.56973574732565,Position,"Pawlak, Poland",true,Location,31824,PL,,Pawlak,0,false,,131.08952719598742
+Spain,,-64.32658635531185,Position,"Mazur, Spain",true,Location,40096,ES,,Mazur,1,true,,100.06815412696321
+"United States of America",,-88.07774516939897,Position,"Przybylski, United States of America",false,Location,33583,US,,Przybylski,2,true,,62.212521153360555
+Poland,,-45.42148423034916,Position,"Kołodziej, Poland",true,Location,66311,PL,,Kołodziej,3,true,,159.10839394197745
+"United States of America",,-9.747661416914667,Position,"Wasilewska, United States of America",false,Location,96145,US,,Wasilewska,4,true,,116.55756135225728
+Spain,,51.76696399508256,Position,"Wasilewska, Spain",true,Location,38349,ES,,Wasilewska,5,false,,95.2089719629678
+"United States of America",,-66.88076886092833,Position,"Przybylski, United States of America",false,Location,34005,US,,Przybylski,6,true,,57.38092848520421
+Spain,,-73.83741659986468,Position,"Wasilewska, Spain",true,Location,35101,ES,,Wasilewska,7,false,,36.6443847448421
