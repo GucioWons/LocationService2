@@ -1,9 +1,6 @@
 country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,_id,coreCountry,key,longitude
-"United States of America",,-12.322369572582431,Position,"Mazur, United States of America",false,Location,33174,US,,Mazur,102,false,,50.168043578309025
-Spain,,-40.174576004728685,Position,"Krajewska, Spain",true,Location,89039,ES,,Krajewska,103,true,,124.21550618645747
-Poland,,2.5196491474793703,Position,"Marciniak, Poland",true,Location,90513,PL,,Marciniak,104,true,,48.447204010083134
-Poland,,-80.93184902256331,Position,"Szewczyk, Poland",true,Location,75319,PL,,Szewczyk,105,false,,143.91108637751452
-Spain,,-62.65010633867456,Position,"Marciniak, Spain",true,Location,18635,ES,,Marciniak,106,true,,103.70061001187189
-Poland,,8.822701576989203,Position,"Stępień, Poland",true,Location,51752,PL,,Stępień,107,false,,83.37380682802225
-"United States of America",,-55.54903632427992,Position,"Wasilewska, United States of America",false,Location,79745,US,,Wasilewska,108,false,,40.066865514210555
-Spain,,34.27155949034335,Position,"Sawicki, Spain",true,Location,29042,ES,,Sawicki,109,false,,11.102420948304735
+"United States of America",,24.603767767574723,Position,"Szewczyk, United States of America",false,Location,87814,US,,Szewczyk,3,true,,10.420252305784084
+Poland,,51.86052485473152,Position,"Baran, Poland",true,Location,76257,PL,,Baran,4,true,,139.03506806714805
+"United States of America",,16.8782767886444,Position,"Przybylski, United States of America",false,Location,44148,US,,Przybylski,5,true,,148.27585423898486
+"United States of America",,-86.04507155680402,Position,"Sawicki, United States of America",false,Location,94901,US,,Sawicki,6,false,,60.8135408386865
+"United States of America",,33.59060637559412,Position,"Marciniak, United States of America",false,Location,61806,US,,Marciniak,7,true,,79.81592287133462

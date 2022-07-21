@@ -1,18 +1,22 @@
 package org.example.csv;
 
+import org.example.json.JsonFlattener;
+import org.example.json.JsonFromUrlReader;
+import org.example.json.JsonToCsvConverter;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.csv.CsvReader.getJsonParsedToCsv;
-import static org.example.json.Json.*;
-import static org.example.json.Json.getJsonFromUrl;
 
 @Service
 public class CsvService {
-    public static String getFieldsFromUrl(int x){
-        JsonToCsv(getFlattenedJson(getJsonFromUrl(x)));
+    JsonFlattener jsonFlattener = new JsonFlattener();
+    JsonToCsvConverter jsonToCsvConverter = new JsonToCsvConverter();
+    JsonFromUrlReader jsonFromUrlReader = new JsonFromUrlReader();
+    public String getFieldsFromUrl(int x){
+        jsonToCsvConverter.JsonToCsv(jsonFlattener.getFlattenedJson(jsonFromUrlReader.getJsonFromUrl(x)));
         List<String> fields = new ArrayList<>();
         fields.add("_type");
         fields.add("_id");
@@ -23,8 +27,8 @@ public class CsvService {
         return getJsonParsedToCsv(fields);
     }
 
-    public static String getChoosenFieldsFromUrl(int x, List<String> fields){
-        JsonToCsv(getFlattenedJson(getJsonFromUrl(x)));
+    public String getChosenFieldsFromUrl(int x, List<String> fields){
+        jsonToCsvConverter.JsonToCsv(jsonFlattener.getFlattenedJson(jsonFromUrlReader.getJsonFromUrl(x)));
         return getJsonParsedToCsv(fields);
     }
 
