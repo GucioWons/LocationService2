@@ -12,7 +12,7 @@ public class JsonFlattener {
         return new ObjectMapper();
     }
 
-    public static JsonNode getFlattenedJson(JsonNode jsonNode){
+    public JsonNode getFlattenedJson(JsonNode jsonNode){
         List<Map<String,JsonNode>> namesAndObjects = new ArrayList<>();
         Iterator<JsonNode> jsonObjects = jsonNode.elements();
         for(int i=0; i<jsonNode.size(); i++){
@@ -22,7 +22,7 @@ public class JsonFlattener {
         return objectMapper.valueToTree(namesAndObjects);
     }
 
-    private static Map<String,JsonNode> flattenJson(JsonNode jsonObject){
+    private Map<String,JsonNode> flattenJson(JsonNode jsonObject){
         Iterator<JsonNode> jsonFields = jsonObject.elements();
         Iterator<String> jsonFieldnames = jsonObject.fieldNames();
         Map<String, JsonNode> namesAndValues = new HashMap<>();
@@ -34,7 +34,7 @@ public class JsonFlattener {
         return namesAndValues;
     }
 
-    private static void rewriteJsonValues(JsonNode jsonNode, String jsonNodeFieldname, Map<String, JsonNode> namesAndValues){
+    private void rewriteJsonValues(JsonNode jsonNode, String jsonNodeFieldname, Map<String, JsonNode> namesAndValues){
         if(jsonNode.isObject()){
             Iterator<JsonNode> objectFields = jsonNode.elements();
             Iterator<String> objectFieldnames = jsonNode.fieldNames();

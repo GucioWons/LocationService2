@@ -14,7 +14,7 @@ public class JsonFromUrlReader {
         return new ObjectMapper();
     }
 
-    public static JsonNode getJsonFromUrl(int quantity){
+    public JsonNode getJsonFromUrl(int quantity){
         try {
             InputStream is = new URL("http://localhost:8080/generate/json/" + quantity).openStream();
             return readJson(is);
@@ -23,7 +23,7 @@ public class JsonFromUrlReader {
         }
     }
 
-    private static JsonNode readJson(InputStream is) throws IOException {
+    private JsonNode readJson(InputStream is) throws IOException {
         try (is) {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             StringToJsonParser parser = new StringToJsonParser();
@@ -32,7 +32,7 @@ public class JsonFromUrlReader {
         }
     }
 
-    private static String readAll(Reader rd) throws IOException {
+    private String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
         while ((cp = rd.read()) != -1) {

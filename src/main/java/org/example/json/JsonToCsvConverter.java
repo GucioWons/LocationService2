@@ -15,7 +15,7 @@ public class JsonToCsvConverter {
         return new CsvMapper();
     }
 
-    public static void JsonToCsv(JsonNode jsonNode){
+    public void JsonToCsv(JsonNode jsonNode){
         CsvSchema.Builder csvSchemaBuilder = CsvSchema.builder();
         jsonNode.elements().next().fieldNames().forEachRemaining(csvSchemaBuilder::addColumn);
         CsvSchema csvSchema = csvSchemaBuilder.build().withHeader();

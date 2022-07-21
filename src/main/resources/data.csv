@@ -1,9 +1,6 @@
 country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,_id,coreCountry,key,longitude
-Poland,,-39.56973574732565,Position,"Pawlak, Poland",true,Location,31824,PL,,Pawlak,0,false,,131.08952719598742
-Spain,,-64.32658635531185,Position,"Mazur, Spain",true,Location,40096,ES,,Mazur,1,true,,100.06815412696321
-"United States of America",,-88.07774516939897,Position,"Przybylski, United States of America",false,Location,33583,US,,Przybylski,2,true,,62.212521153360555
-Poland,,-45.42148423034916,Position,"Kołodziej, Poland",true,Location,66311,PL,,Kołodziej,3,true,,159.10839394197745
-"United States of America",,-9.747661416914667,Position,"Wasilewska, United States of America",false,Location,96145,US,,Wasilewska,4,true,,116.55756135225728
-Spain,,51.76696399508256,Position,"Wasilewska, Spain",true,Location,38349,ES,,Wasilewska,5,false,,95.2089719629678
-"United States of America",,-66.88076886092833,Position,"Przybylski, United States of America",false,Location,34005,US,,Przybylski,6,true,,57.38092848520421
-Spain,,-73.83741659986468,Position,"Wasilewska, Spain",true,Location,35101,ES,,Wasilewska,7,false,,36.6443847448421
+"United States of America",,24.603767767574723,Position,"Szewczyk, United States of America",false,Location,87814,US,,Szewczyk,3,true,,10.420252305784084
+Poland,,51.86052485473152,Position,"Baran, Poland",true,Location,76257,PL,,Baran,4,true,,139.03506806714805
+"United States of America",,16.8782767886444,Position,"Przybylski, United States of America",false,Location,44148,US,,Przybylski,5,true,,148.27585423898486
+"United States of America",,-86.04507155680402,Position,"Sawicki, United States of America",false,Location,94901,US,,Sawicki,6,false,,60.8135408386865
+"United States of America",,33.59060637559412,Position,"Marciniak, United States of America",false,Location,61806,US,,Marciniak,7,true,,79.81592287133462
