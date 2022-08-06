@@ -1,11 +1,11 @@
 country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,_id,coreCountry,key,longitude
-Spain,,66.0237350160254,Position,"Tomaszewski, Spain",true,Location,69801,ES,,Tomaszewski,1,true,,23.482775991687365
-"United States of America",,-61.25273931045303,Position,"Sawicki, United States of America",false,Location,76368,US,,Sawicki,2,false,,22.997063175272036
-"United States of America",,-79.73987033366997,Position,"Pawlak, United States of America",false,Location,41140,US,,Pawlak,3,false,,108.19996888445456
-Poland,,44.21195446172544,Position,"Szewczyk, Poland",true,Location,92001,PL,,Szewczyk,4,false,,166.3364216054327
-Spain,,56.501747448955626,Position,"Wasilewska, Spain",true,Location,81808,ES,,Wasilewska,5,false,,87.09497039182425
-Spain,,-81.3117636177292,Position,"Kowalczyk, Spain",true,Location,38178,ES,,Kowalczyk,6,false,,130.90922219364575
-Poland,,-41.1040908114569,Position,"Sawicki, Poland",true,Location,41758,PL,,Sawicki,7,false,,103.73158606929353
-Poland,,-39.425820564733606,Position,"Kołodziej, Poland",true,Location,7644,PL,,Kołodziej,8,true,,34.44391950496697
-"United States of America",,-64.6406701175593,Position,"Krajewska, United States of America",false,Location,45985,US,,Krajewska,9,false,,112.53997735125749
-Spain,,-51.456537682964054,Position,"Marciniak, Spain",true,Location,61192,ES,,Marciniak,10,true,,66.5401640543448
+Poland,,31.171602514619067,Position,"Górski, Poland",true,Location,68171,PL,,Górski,30,true,,86.76522113837052
+"United States of America",,-22.305345289893694,Position,"Kołodziej, United States of America",false,Location,97836,US,,Kołodziej,31,false,,114.15851988361841
+"United States of America",,53.14286546859023,Position,"Górski, United States of America",false,Location,56216,US,,Górski,32,false,,39.4101240262969
+"United States of America",,-44.50582284504209,Position,"Baran, United States of America",false,Location,7494,US,,Baran,33,false,,46.16854662902894
+Poland,,38.102295601988374,Position,"Szewczyk, Poland",true,Location,84728,PL,,Szewczyk,34,false,,143.0466399412347
+"United States of America",,45.240047348487735,Position,"Krawczyk, United States of America",false,Location,84400,US,,Krawczyk,35,false,,165.04038164411884
+Spain,,-28.71093320912601,Position,"Marciniak, Spain",true,Location,92242,ES,,Marciniak,36,true,,50.43367188693026
+"United States of America",,88.87804468045707,Position,"Kołodziej, United States of America",false,Location,26045,US,,Kołodziej,37,true,,75.8453092606525
+"United States of America",,-34.09127016896092,Position,"Szewczyk, United States of America",false,Location,45424,US,,Szewczyk,38,false,,22.99706700926659
+Spain,,41.98115605213937,Position,"Marciniak, Spain",true,Location,47667,ES,,Marciniak,39,true,,144.7986334380727

@@ -2,16 +2,21 @@ package org.example.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Component;
 
+@Configurable
 @Component
 public class StringToJsonParser {
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapperConfig objectMapperConfig;
+
+    public StringToJsonParser(ObjectMapperConfig objectMapperConfig) {
+        this.objectMapperConfig = objectMapperConfig;
+    }
 
     public JsonNode parse(String src){
         try {
-            return objectMapper.readTree(src);
+            return objectMapperConfig.getObjectMapper().readTree(src);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

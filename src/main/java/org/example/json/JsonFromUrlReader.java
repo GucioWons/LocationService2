@@ -10,9 +10,13 @@ import java.nio.charset.StandardCharsets;
 
 @Component
 public class JsonFromUrlReader {
-    private final StringToJsonParser stringToJsonParser = new StringToJsonParser();
+    private final StringToJsonParser stringToJsonParser;
     @Value("${getjson.url}")
     private String getJsonUrl;
+
+    public JsonFromUrlReader(StringToJsonParser stringToJsonParser) {
+        this.stringToJsonParser = stringToJsonParser;
+    }
 
     public JsonNode getJsonFromUrl(int quantity){
         try {
