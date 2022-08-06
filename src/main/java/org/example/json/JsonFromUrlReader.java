@@ -1,18 +1,15 @@
 package org.example.json;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+@Component
 public class JsonFromUrlReader {
-    private static final ObjectMapper objectMapper = getDefaultObjectMapper();
-
-    private static ObjectMapper getDefaultObjectMapper(){
-        return new ObjectMapper();
-    }
+    private final StringToJsonParser stringToJsonParser = new StringToJsonParser();
 
     public JsonNode getJsonFromUrl(int quantity){
         try {
@@ -26,9 +23,8 @@ public class JsonFromUrlReader {
     private JsonNode readJson(InputStream is) throws IOException {
         try (is) {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-            StringToJsonParser parser = new StringToJsonParser();
             String jsonText = readAll(rd);
-            return parser.parse(jsonText);
+            return stringToJsonParser.parse(jsonText);
         }
     }
 

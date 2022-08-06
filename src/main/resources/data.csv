@@ -1,6 +1,9 @@
 country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,_id,coreCountry,key,longitude
-"United States of America",,24.603767767574723,Position,"Szewczyk, United States of America",false,Location,87814,US,,Szewczyk,3,true,,10.420252305784084
-Poland,,51.86052485473152,Position,"Baran, Poland",true,Location,76257,PL,,Baran,4,true,,139.03506806714805
-"United States of America",,16.8782767886444,Position,"Przybylski, United States of America",false,Location,44148,US,,Przybylski,5,true,,148.27585423898486
-"United States of America",,-86.04507155680402,Position,"Sawicki, United States of America",false,Location,94901,US,,Sawicki,6,false,,60.8135408386865
-"United States of America",,33.59060637559412,Position,"Marciniak, United States of America",false,Location,61806,US,,Marciniak,7,true,,79.81592287133462
+Poland,,-61.82191985957644,Position,"Mazur, Poland",true,Location,62607,PL,,Mazur,16,true,,120.46320462572636
+"United States of America",,-71.99498249664416,Position,"Błaszczyk, United States of America",false,Location,14509,US,,Błaszczyk,17,false,,50.847392043581294
+"United States of America",,-61.91774885585163,Position,"Kowalczyk, United States of America",false,Location,95448,US,,Kowalczyk,18,false,,120.49597543515512
+Spain,,74.03092710588717,Position,"Górski, Spain",true,Location,32817,ES,,Górski,19,false,,31.73470240872274
+Spain,,58.6053170161108,Position,"Stępień, Spain",true,Location,17692,ES,,Stępień,20,true,,109.44727137796033
+Poland,,-53.99949899193637,Position,"Bąk, Poland",true,Location,72197,PL,,Bąk,21,false,,112.22265396385478
+Spain,,-26.038105684295445,Position,"Marciniak, Spain",true,Location,78738,ES,,Marciniak,22,true,,20.373567889401535
+"United States of America",,-47.7099220788207,Position,"Szewczyk, United States of America",false,Location,41684,US,,Szewczyk,23,true,,139.19263519784653

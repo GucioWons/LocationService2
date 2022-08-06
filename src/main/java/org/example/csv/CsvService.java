@@ -12,9 +12,16 @@ import static org.example.csv.CsvReader.getJsonParsedToCsv;
 
 @Service
 public class CsvService {
-    JsonFlattener jsonFlattener = new JsonFlattener();
-    JsonToCsvConverter jsonToCsvConverter = new JsonToCsvConverter();
-    JsonFromUrlReader jsonFromUrlReader = new JsonFromUrlReader();
+    private final JsonFlattener jsonFlattener;
+    private final JsonToCsvConverter jsonToCsvConverter;
+    private final JsonFromUrlReader jsonFromUrlReader;
+
+    public CsvService(JsonFlattener jsonFlattener, JsonToCsvConverter jsonToCsvConverter, JsonFromUrlReader jsonFromUrlReader) {
+        this.jsonFlattener = jsonFlattener;
+        this.jsonToCsvConverter = jsonToCsvConverter;
+        this.jsonFromUrlReader = jsonFromUrlReader;
+    }
+
     public String getFieldsFromUrl(int x){
         jsonToCsvConverter.JsonToCsv(jsonFlattener.getFlattenedJson(jsonFromUrlReader.getJsonFromUrl(x)));
         List<String> fields = new ArrayList<>();

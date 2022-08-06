@@ -2,15 +2,14 @@ package org.example.json;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class JsonFlattener {
-    private static final ObjectMapper objectMapper = getDefaultObjectMapper();
 
-    private static ObjectMapper getDefaultObjectMapper(){
-        return new ObjectMapper();
-    }
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public JsonNode getFlattenedJson(JsonNode jsonNode){
         List<Map<String,JsonNode>> namesAndObjects = new ArrayList<>();
@@ -23,25 +22,30 @@ public class JsonFlattener {
     }
 
     private Map<String,JsonNode> flattenJson(JsonNode jsonObject){
-        Iterator<JsonNode> jsonFields = jsonObject.elements();
-        Iterator<String> jsonFieldnames = jsonObject.fieldNames();
         Map<String, JsonNode> namesAndValues = new HashMap<>();
+        Iterator<JsonNode> jsonFields = jsonObject.elements();
+        Iterator<String> jsonFieldNames = jsonObject.fieldNames();
         for(int i=0; i<jsonObject.size(); i++){
             JsonNode jsonNode = jsonFields.next();
-            String jsonNodeFieldname = jsonFieldnames.next();
-            rewriteJsonValues(jsonNode, jsonNodeFieldname, namesAndValues);
+            String jsonNodeFieldName = jsonFieldNames.next();
+            rewriteJsonValues(jsonNode, jsonNodeFieldName, namesAndValues);
         }
         return namesAndValues;
     }
 
-    private void rewriteJsonValues(JsonNode jsonNode, String jsonNodeFieldname, Map<String, JsonNode> namesAndValues){
+    private void rewriteJsonValues(JsonNode jsonNode, String jsonNodeFieldName, Map<String, JsonNode> namesAndValues){
         if(jsonNode.isObject()){
             Iterator<JsonNode> objectFields = jsonNode.elements();
-            Iterator<String> objectFieldnames = jsonNode.fieldNames();
-            namesAndValues.put(objectFieldnames.next(), objectFields.next());
-            namesAndValues.put(objectFieldnames.next(), objectFields.next());
+            Iterator<String> objectFieldNames = jsonNode.fieldNames();
+            putObjectNamesAndValues(objectFields, objectFieldNames, namesAndValues);
         }else{
-            namesAndValues.put(jsonNodeFieldname, jsonNode);
+            namesAndValues.put(jsonNodeFieldName, jsonNode);
+        }
+    }
+
+    private void putObjectNamesAndValues(Iterator<JsonNode> objectFields, Iterator<String> objectFieldNames, Map<String, JsonNode> namesAndValues) {
+        for(int i=1; i<=2; i++) {
+            namesAndValues.put(objectFieldNames.next(), objectFields.next());
         }
     }
 }
