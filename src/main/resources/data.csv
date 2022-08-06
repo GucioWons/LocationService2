@@ -1,9 +1,11 @@
 country,distance,latitude,_type,fullName,inEurope,type,location_id,countryCode,iata_airport_code,name,_id,coreCountry,key,longitude
-Poland,,-61.82191985957644,Position,"Mazur, Poland",true,Location,62607,PL,,Mazur,16,true,,120.46320462572636
-"United States of America",,-71.99498249664416,Position,"Błaszczyk, United States of America",false,Location,14509,US,,Błaszczyk,17,false,,50.847392043581294
-"United States of America",,-61.91774885585163,Position,"Kowalczyk, United States of America",false,Location,95448,US,,Kowalczyk,18,false,,120.49597543515512
-Spain,,74.03092710588717,Position,"Górski, Spain",true,Location,32817,ES,,Górski,19,false,,31.73470240872274
-Spain,,58.6053170161108,Position,"Stępień, Spain",true,Location,17692,ES,,Stępień,20,true,,109.44727137796033
-Poland,,-53.99949899193637,Position,"Bąk, Poland",true,Location,72197,PL,,Bąk,21,false,,112.22265396385478
-Spain,,-26.038105684295445,Position,"Marciniak, Spain",true,Location,78738,ES,,Marciniak,22,true,,20.373567889401535
-"United States of America",,-47.7099220788207,Position,"Szewczyk, United States of America",false,Location,41684,US,,Szewczyk,23,true,,139.19263519784653
+Spain,,66.0237350160254,Position,"Tomaszewski, Spain",true,Location,69801,ES,,Tomaszewski,1,true,,23.482775991687365
+"United States of America",,-61.25273931045303,Position,"Sawicki, United States of America",false,Location,76368,US,,Sawicki,2,false,,22.997063175272036
+"United States of America",,-79.73987033366997,Position,"Pawlak, United States of America",false,Location,41140,US,,Pawlak,3,false,,108.19996888445456
+Poland,,44.21195446172544,Position,"Szewczyk, Poland",true,Location,92001,PL,,Szewczyk,4,false,,166.3364216054327
+Spain,,56.501747448955626,Position,"Wasilewska, Spain",true,Location,81808,ES,,Wasilewska,5,false,,87.09497039182425
+Spain,,-81.3117636177292,Position,"Kowalczyk, Spain",true,Location,38178,ES,,Kowalczyk,6,false,,130.90922219364575
+Poland,,-41.1040908114569,Position,"Sawicki, Poland",true,Location,41758,PL,,Sawicki,7,false,,103.73158606929353
+Poland,,-39.425820564733606,Position,"Kołodziej, Poland",true,Location,7644,PL,,Kołodziej,8,true,,34.44391950496697
+"United States of America",,-64.6406701175593,Position,"Krajewska, United States of America",false,Location,45985,US,,Krajewska,9,false,,112.53997735125749
+Spain,,-51.456537682964054,Position,"Marciniak, Spain",true,Location,61192,ES,,Marciniak,10,true,,66.5401640543448

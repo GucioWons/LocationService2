@@ -1,6 +1,7 @@
 package org.example.json;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -10,10 +11,12 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class JsonFromUrlReader {
     private final StringToJsonParser stringToJsonParser = new StringToJsonParser();
+    @Value("${getjson.url}")
+    private String getJsonUrl;
 
     public JsonNode getJsonFromUrl(int quantity){
         try {
-            InputStream is = new URL("http://localhost:8080/generate/json/" + quantity).openStream();
+            InputStream is = new URL(getJsonUrl + quantity).openStream();
             return readJson(is);
         } catch (IOException e) {
             throw new RuntimeException(e);
