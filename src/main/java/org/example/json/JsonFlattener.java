@@ -1,19 +1,18 @@
 package org.example.json;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.springframework.beans.factory.annotation.Configurable;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-@Configurable
 @Component
 public class JsonFlattener {
 
-    private final ObjectMapperConfig objectMapperConfig;
+    private final ObjectMapper objectMapper;
 
-    public JsonFlattener(ObjectMapperConfig objectMapperConfig) {
-        this.objectMapperConfig = objectMapperConfig;
+    public JsonFlattener(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
     }
 
     public JsonNode getFlattenedJson(JsonNode jsonNode){
@@ -23,7 +22,7 @@ public class JsonFlattener {
             JsonNode jsonObject = jsonObjects.next();
             namesAndObjects.add(flattenJson(jsonObject));
         }
-        return objectMapperConfig.getObjectMapper().valueToTree(namesAndObjects);
+        return objectMapper.valueToTree(namesAndObjects);
     }
 
     private Map<String,JsonNode> flattenJson(JsonNode jsonObject){

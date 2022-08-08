@@ -23,7 +23,7 @@ public class CsvService {
     }
 
     public String getFieldsFromUrl(int x){
-        jsonToCsvConverter.JsonToCsv(jsonFlattener.getFlattenedJson(jsonFromUrlReader.getJsonFromUrl(x)));
+        jsonToCsvConverter.jsonToCsv(jsonFlattener.getFlattenedJson(jsonFromUrlReader.getJsonFromUrl(x)));
         List<String> fields = new ArrayList<>();
         fields.add("_type");
         fields.add("_id");
@@ -35,7 +35,7 @@ public class CsvService {
     }
 
     public String getChosenFieldsFromUrl(int x, List<String> fields){
-        jsonToCsvConverter.JsonToCsv(jsonFlattener.getFlattenedJson(jsonFromUrlReader.getJsonFromUrl(x)));
+        jsonToCsvConverter.jsonToCsv(jsonFlattener.getFlattenedJson(jsonFromUrlReader.getJsonFromUrl(x)));
         return getJsonParsedToCsv(fields);
     }
 

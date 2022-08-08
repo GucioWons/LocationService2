@@ -12,7 +12,7 @@ import java.io.IOException;
 public class JsonToCsvConverter {
     private final CsvMapper csvMapper = new CsvMapper();
 
-    public void JsonToCsv(JsonNode jsonNode){
+    public void jsonToCsv(JsonNode jsonNode){
         CsvSchema.Builder csvSchemaBuilder = CsvSchema.builder();
         jsonNode.elements().next().fieldNames().forEachRemaining(csvSchemaBuilder::addColumn);
         CsvSchema csvSchema = csvSchemaBuilder.build().withHeader();
